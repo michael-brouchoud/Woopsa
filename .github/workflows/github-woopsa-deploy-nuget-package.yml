@@ -33,12 +33,13 @@ jobs:
       uses: actions/upload-artifact@v2.1.4
       with:
         name: Woopsa Nuget Package
-        path: './artifacts/*.nupkg' 
+        path: '$env:GITHUB_WORKSPACE/Sources/DotNet/artifacts/*.nupkg'
+        if-no-files-found: error         
 
     - name: Deploy Nuget Package
       env:
         WOOPSA_NUGET_API_KEY: ${{ secrets.WOOPSA_NUGET_API_KEY }}
-      run: dotnet nuget push ./artifacts/*.nupkg --api-key $env:WOOPSA_NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push '$env:GITHUB_WORKSPACE/Sources/DotNet/artifacts/*.nupkg' --api-key $env:WOOPSA_NUGET_API_KEY --source https://api.nuget.org/v3/index.json
       working-directory: ./Sources/DotNet
       
     
