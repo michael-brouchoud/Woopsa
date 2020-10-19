@@ -11,6 +11,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Dump GitHub env
+      env:
+        GITHUB_ENV: ${{ toJson(env) }}
+      run: echo "$GITHUB_ENV"
       
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
