@@ -24,11 +24,6 @@ jobs:
     - name: Build
       run: dotnet build ./Woopsa.sln --configuration Release --no-restore
       working-directory: ./Sources/DotNet
-      
-    - name: Test
-      run: dotnet test ./Woopsa.sln --no-restore --configuration Release --filter TestCategory!=Performance --verbosity normal
-      working-directory: ./Sources/DotNet
-
   
     - name: Generate Nuget Package
       run: dotnet pack ./Woopsa.sln --configuration Release
