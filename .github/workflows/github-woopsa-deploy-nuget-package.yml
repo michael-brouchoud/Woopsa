@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v2.1.4
       with:
         name: Woopsa Nuget Package
-        path: 'GITHUB_WORKSPACE/Sources/DotNet/artifacts/*.nupkg'
+        path: '${{ env.GITHUB_WORKSPACE }}/Sources/DotNet/artifacts/*.nupkg'
         if-no-files-found: error         
 
     - name: Deploy Nuget Package
