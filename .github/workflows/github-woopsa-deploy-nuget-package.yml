@@ -26,7 +26,7 @@ jobs:
       working-directory: ./Sources/DotNet
   
     - name: Generate Nuget Package
-      run: dotnet pack ./Woopsa.sln --configuration Release -o '${{ toJson(github.workspace) }}/artifacts'
+      run: dotnet pack ./Woopsa.sln --configuration Release -o '${{ toJson(github.workspace) }}/Sources/DotNet/artifacts'
       working-directory: ./Sources/DotNet
     
     - name: Upload a Build Artifact
